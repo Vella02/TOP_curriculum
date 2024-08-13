@@ -19,11 +19,12 @@ This section contains a general overview of topics that you will learn in this l
 
 In the previous lesson, we learned what an **entry point** is, what a **dependency graph** is, and how to add an entry point file to HTML as a module script. With bundling, the same concepts of entry points and dependency graphs apply: we provide the bundler with an entry point. It then builds a dependency graph from that file, combines all relevant files together, and then outputs a single file with all the necessary code included.
 
-While it does this, we could also get it to do a whole bunch of other things, such as [minifying our code](https://en.wikipedia.org/wiki/Minification_(programming)), image optimizations, or even ["tree shaking"](https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking). Most of these extra optimizations are out of the scope of this course; we will instead be focusing on basic bundling of JavaScript, and handling HTML, CSS, and images.
+While it does this, we could also get it to do a whole bunch of other things, such as [minifying our code](<https://en.wikipedia.org/wiki/Minification_(programming)>), image optimizations, or even ["tree shaking"](https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking). Most of these extra optimizations are out of the scope of this course; we will instead be focusing on basic bundling of JavaScript, and handling HTML, CSS, and images.
 
 ### Webpack
 
 Webpack is one of the most popular JavaScript bundlers, if not the most popular one, and has been for a long time. Let's get started with bundling!
+(Webpack is extremely confusing at first)
 
 We'll first need to make a new directory for our practice app, then create a `package.json` file in it for npm to record information about packages we use (like Webpack). Run the following in your terminal:
 
@@ -116,7 +117,7 @@ You'll notice the exported object contains a few key sections:
   - `filename`: The name of the output bundle - it can be anything you want.
   - `path`: The path to the output directory, in this case, `dist`. If this directory doesn't already exist when we run Webpack, it will automatically create it for us as well. Don't worry too much about why we have the `path.resolve` part - this is just the way Webpack recommends we specify the output directory.
   - `clean`: If we include this option and set it to `true`, then each time we run Webpack to bundle, it will empty the output directory first before bundling the files into it. This helps us keep `dist` clean, so it only contains the files produced by the most recent bundling.
-  
+
 With these files all in place, let's run Webpack and see what happens!
 
 ```bash
@@ -170,7 +171,7 @@ Let's see how we'd handle CSS.
 
 ### Loading CSS
 
-We don't just need one new package for CSS, we need *two*. Gosh, what a greedy little thing... Let's install them.
+We don't just need one new package for CSS, we need _two_. Gosh, what a greedy little thing... Let's install them.
 
 ```bash
 npm install --save-dev style-loader css-loader
@@ -285,10 +286,10 @@ There are three different ways you could be dealing with local image files:
 
    ```javascript
    import odinImage from "./odin.png";
-   
+
    const image = document.createElement("img");
    image.src = odinImage;
-   
+
    document.body.appendChild(image);
    ```
 
